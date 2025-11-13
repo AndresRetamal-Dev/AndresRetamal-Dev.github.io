@@ -8,6 +8,8 @@ draft: false
 
 ## 👨‍💻 About Me
 
+<div class="text-left">
+
 Hey! I’m **Andrés Retamal López**, a **.NET Software Engineer** currently living in **Zürich, Switzerland** 🇨🇭  
 I moved here about **7 months ago**, chasing new opportunities, personal growth, and a fresh start.  
 It’s been a journey full of learning — new country, new language (yep, I’m learning German 🇩🇪), and a whole new level of independence.  
@@ -23,3 +25,5 @@ I care a lot about **clean, maintainable code** — I’m big on **planning, str
 I’d describe myself as **organized, perfectionist, and curious** — always exploring new technologies, frameworks, and better ways to code.
 
 > *“Engineering isn’t just about building features — it’s about building confidence in how things work.”*
+
+</div>

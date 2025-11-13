@@ -26,44 +26,75 @@ if (contactIndex.data.draft) {
         <div class="mx-auto md:col-10 lg:col-6">
           <form action={contact_form_action} method="POST">
             <div class="mb-6">
-              <label for="name" class="form-label">
-                Full Name <span class="text-red-500">*</span>
+              <label for="name" class="form-label text-2xl font-semibold">
+                👤 Full Name <span class="text-red-500">:</span>
+                <span class="ml-1 font-normal text-xl">Andrés Retamal López</span>
               </label>
-              <input
-                id="name"
-                name="name"
-                class="form-input"
-                placeholder="Andrés Retamal López"
-                type="text"
-                required
-              />
             </div>
+
             <div class="mb-6">
-              <label for="email" class="form-label">
-                Working Mail <span class="text-red-500">*</span>
+              <label for="email" class="form-label text-2xl font-semibold">
+                📧 Working Mail <span class="text-red-500">:</span>
+                <a
+                  href="mailto:andresretamallopezch@gmail.com"
+                  class="ml-1 font-normal text-xl underline"
+                >
+                  andresretamallopezch@gmail.com
+                </a>
               </label>
-              <input
-                id="email"
-                name="email"
-                class="form-input"
-                placeholder="andresretamallopezch@gmail.com"
-                type="email"
-                required
-              />
             </div>
+
             <div class="mb-6">
-              <label for="message" class="form-label">
-                Anything else? <span class="text-red-500">*</span>
+              <label for="github" class="form-label text-2xl font-semibold">
+                💻 GitHub <span class="text-red-500">:</span>
+                <a
+                  href="https://github.com/AndresRetamal-Dev"
+                  target="_blank"
+                  rel="noreferrer"
+                  class="ml-1 font-normal text-lg underline"
+                >
+                  github.com/AndresRetamal-Dev
+                </a>
               </label>
-              <textarea
-                id="message"
-                name="message"
-                class="form-input"
-                placeholder="Message goes here..."
-                required
-                rows="8"></textarea>
             </div>
+
+            <div class="mb-6">
+              <label for="linkedin" class="form-label text-2xl font-semibold">
+                🔗 LinkedIn <span class="text-red-500">:</span>
+                <a
+                  href="https://www.linkedin.com/in/andr%C3%A9s-retamal-l%C3%B3pez-985898212/"
+                  target="_blank"
+                  rel="noreferrer"
+                  class="ml-1 font-normal text-xl underline"
+                >
+                  linkedin.com/in/andrés-retamal-lópez-985898212
+                </a>
+              </label>
+            </div>
+
+            <div class="mb-6">
+              <label for="location" class="form-label text-2xl font-semibold">
+                📍 Location <span class="text-red-500">:</span>
+                <span class="ml-1 font-normal text-xl">Zurich, Switzerland</span>
+              </label>
+            </div>
+
+            <div class="mb-6">
+              <label for="cv" class="form-label text-2xl font-bold">
+                📄 CV <span class="text-red-500">:</span>
+                <a
+                  href="/cv/Andres_Retamal_CV.pdf"
+                  download
+                  class="ml-1 font-normal text-lg underline"
+                >
+                  Download CV (PDF)
+                </a>
+              </label>
+            </div>
+
+            {/*
             <button type="submit" class="btn btn-primary">Submit</button>
+            */}
           </form>
         </div>
       </div>
