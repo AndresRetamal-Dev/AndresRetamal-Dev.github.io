@@ -11,16 +11,18 @@ banner:
 
 # Features
 features:
-  - title: "What's Included in Astroplate"
+  - title: "My Real Work Journey"
     image: "/images/service-1.png"
-    content: "Astroplate is a comprehensive starter template that includes everything you need to get started with your Astro project. What's Included in Astroplate"
+    content: "Do you want to know how I’ve really worked, instead of just reading a résumé or having a phone call?
+      Here you’ll find my blogs and small tips where I’ll show you what I’ve done — and most importantly, how I’ve done it. I’ll be narrating everything from when I first started up to today, since this can give a better view of my professional experience and help me stand out among so many people nowadays.
+      I hope to hear your thoughts on some of my blogs. Thank you very much for visiting!"
     bulletpoints:
-      - "10+ Pre-build pages"
-      - "95+ Google Pagespeed Score"
-      - "Build with Astro and TailwindCSS for easy and customizable styling"
-      - "Fully responsive on all devices"
-      - "SEO-optimized for better search engine rankings"
-      - "**Open-source and free** for personal and commercial use"
+      - "You’ll see how I work in real situations"
+      - "You’ll understand the processes behind my results"
+      - "You’ll follow my professional evolution from the very beginning"
+      - "You’ll get a transparent view of my methods and decisions"
+      - "You’ll get real context behind my projects and learnings"
+      - "You’ll connect better with how I think and solve problems"
     button:
       enable: false
       label: "Get Started Now"

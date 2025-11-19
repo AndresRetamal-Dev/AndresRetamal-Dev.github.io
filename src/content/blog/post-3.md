@@ -30,13 +30,14 @@ If you ever decide to change the database engine or switch payment providers, yo
 It’s like building a system in concentric circles: each layer depends only on the inner ones, never outward.
 That separation gives clarity, testability, and long-term maintainability.
 
-
+```csharp
 Service/
 ├─ PaymentGateway.Api
 ├─ PaymentGateway.Application
 ├─ PaymentGateway.Contracts
 ├─ PaymentGateway.Domain.Models
 └─ PaymentGateway.Infrastructure
+```
 
 ## 1️⃣ API Layer
 

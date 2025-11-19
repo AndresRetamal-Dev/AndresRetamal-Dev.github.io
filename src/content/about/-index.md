@@ -2,7 +2,7 @@
 title: "This is me..."
 meta_title: "About"
 description: "this is meta description"
-image: "/images/avatar.png"
+image: "/images/PF2.png"
 draft: false
 ---
 
