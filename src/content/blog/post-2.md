@@ -1,5 +1,6 @@
 ---
 title: "Delivering High-Quality Maintenance & Improvements for Banking and Energy Systems"
+slug: "post-2"
 meta_title: ""
 description: "this is meta description"
 date: 2022-04-04T05:00:00Z

@@ -15,6 +15,7 @@ const blogCollection = defineCollection({
   loader: glob({ pattern: "**/*.{md,mdx}", base: "src/content/blog" }),
   schema: z.object({
     title: z.string(),
+    slug: z.string().optional(),          // 👈 AÑADIDO
     meta_title: z.string().optional(),
     description: z.string().optional(),
     date: z.date().optional(),
@@ -129,16 +130,9 @@ const testimonialSectionCollection = defineCollection({
     enable: z.boolean(),
     title: z.string(),
     description: z.string(),
-    testimonials: z.array(
-      z.object({
-        name: z.string(),
-        avatar: z.string(),
-        designation: z.string(),
-        content: z.string(),
-      }),
-    ),
   }),
 });
+
 
 // Export collections
 export const collections = {

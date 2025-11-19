@@ -1,5 +1,6 @@
 ---
 title: "Bridging Client and Engineering: My End-to-End Workflow Before Writing a Single Line of Code"
+slug: "post-4"
 meta_title: ""
 description: "this is meta description"
 date: 2022-04-04T05:00:00Z

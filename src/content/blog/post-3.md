@@ -1,5 +1,6 @@
 ---
 title: "How to build the best payment-gateway"
+slug: "post-3"
 meta_title: ""
 description: "this is meta description"
 date: 2025-11-12T05:00:00Z
