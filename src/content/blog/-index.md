@@ -1,8 +1,7 @@
 ---
 title: "Blog Posts"
-slug: "post-5"
+slug: "-index"
 meta_title: ""
 description: "this is meta description"
-image: ""
 draft: false
 ---

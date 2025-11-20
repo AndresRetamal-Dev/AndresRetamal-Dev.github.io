@@ -3,7 +3,7 @@ title: "Bridging Client and Engineering: My End-to-End Workflow Before Writing a
 slug: "post-4"
 meta_title: ""
 description: "this is meta description"
-date: 2022-04-04T05:00:00Z
+date: 2025-10-12T05:00:00Z
 image: "/images/docu-conflu.png"
 categories: ["Architecture"]
 author: "Andrés Retamal López"
