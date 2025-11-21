@@ -18,7 +18,9 @@ if (postIndex.data.draft) {
   return Astro.redirect("/404");
 }
 
-const posts = await getSinglePage(BLOG_FOLDER);
+const posts = (await getSinglePage(BLOG_FOLDER)).filter(
+  (post) => post.data.slug !== "-index"
+);
 const allCategories = await getAllTaxonomy(BLOG_FOLDER, "categories");
 const categories = await getTaxonomy(BLOG_FOLDER, "categories");
 const tags = await getTaxonomy(BLOG_FOLDER, "tags");
@@ -31,7 +33,9 @@ const currentPosts = sortedPosts.slice(indexOfFirstPost, indexOfLastPost);
 
 export async function getStaticPaths() {
   const BLOG_FOLDER = "blog";
-  const posts = await getSinglePage(BLOG_FOLDER);
+  const posts = (await getSinglePage(BLOG_FOLDER)).filter(
+  (post) => post.data.slug !== "-index"
+);
   const totalPages = Math.ceil(posts.length / config.settings.pagination);
   const paths = [];
 

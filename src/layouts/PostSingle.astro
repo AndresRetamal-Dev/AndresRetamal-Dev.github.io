@@ -8,12 +8,21 @@ import similarItems from "@/lib/utils/similarItems";
 import { humanize, markdownify, slugify } from "@/lib/utils/textConverter";
 import { render } from "astro:content";
 import { FaRegClock, FaRegFolder, FaRegUserCircle } from "react-icons/fa";
-import ImageMod from "./components/ImageMod.astro";
+import ImageMod from "@/components/ImageMod.astro";
 
 const COLLECTION_FOLDER = "blog";
 const { post } = Astro.props;
 
-const posts = await getSinglePage(COLLECTION_FOLDER);
+// función para detectar el -index del blog
+function isBlogIndex(p) {
+  return p.data?.slug === "-index";
+}
+
+// todos los posts
+const allPosts = await getSinglePage(COLLECTION_FOLDER);
+// quitamos el -index
+const posts = allPosts.filter((p) => !isBlogIndex(p));
+
 const similarPosts = similarItems(post, posts);
 const { Content } = await render(post);
 const { title, description, author, categories, image, date, tags } = post.data;

@@ -8,10 +8,13 @@ const { testimonial } = Astro.props;
 // Cargamos posts del blog
 const allPosts = await getCollection("blog");
 
+// QUITAMOS el archivo -index.md antes de todo
 const posts = allPosts
-  .filter((p) => !p.data.draft && p.data.slug)  // 👈 sólo los que tienen slug
+  .filter((p) => p.data.slug !== "-index")   // 👈 FILTRO IMPORTANTE
+  .filter((p) => !p.data.draft)
   .sort((a, b) => (b.data.date?.valueOf() ?? 0) - (a.data.date?.valueOf() ?? 0))
   .slice(0, 5);
+
 
 ---
 

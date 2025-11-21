@@ -5,7 +5,9 @@ import { getSinglePage } from "@/lib/contentParser.astro";
 
 export async function getStaticPaths() {
   const BLOG_FOLDER = "blog";
-  const posts = await getSinglePage(BLOG_FOLDER);
+  const posts = (await getSinglePage(BLOG_FOLDER)).filter(
+  (post) => post.data.slug !== "-index"
+);
 
   const paths = posts.map((post) => ({
     params: {

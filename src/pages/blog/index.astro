@@ -15,10 +15,17 @@ const postIndex = await getListPage(BLOG_FOLDER, "-index");
 if (postIndex.data.draft) {
   return Astro.redirect("/404");
 }
-const posts = await getSinglePage(BLOG_FOLDER);
+
+// todos los posts del blog
+const allPosts = await getSinglePage(BLOG_FOLDER);
+
+// quitar el -index
+const posts = allPosts.filter((post) => post.data.slug !== "-index");
+
 const allCategories = await getAllTaxonomy(BLOG_FOLDER, "categories");
 const categories = await getTaxonomy(BLOG_FOLDER, "categories");
 const tags = await getTaxonomy(BLOG_FOLDER, "tags");
+
 const sortedPosts = sortByDate(posts);
 const totalPages: number = Math.ceil(posts.length / config.settings.pagination);
 const currentPosts = sortedPosts.slice(0, config.settings.pagination);

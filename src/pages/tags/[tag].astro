@@ -22,7 +22,9 @@ const { tag } = Astro.params;
 
 // get posts by tag
 const BLOG_FOLDER = "blog";
-const posts = await getSinglePage(BLOG_FOLDER);
+const posts = (await getSinglePage(BLOG_FOLDER)).filter(
+  (post) => post.data.slug !== "-index"
+);
 const filterByTags = taxonomyFilter(posts, "tags", tag!);
 const sortedPosts = sortByDate(filterByTags);
 ---
