@@ -5,97 +5,136 @@ import { getListPage } from "@/lib/contentParser.astro";
 import PageHeader from "@/partials/PageHeader.astro";
 
 const contactIndex = await getListPage("contact", "-index");
-const { contact_form_action }: { contact_form_action: string } = config.params;
 const { title, description, meta_title, image } = contactIndex.data;
 
 if (contactIndex.data.draft) {
   return Astro.redirect("/404");
 }
+
+// datos editables
+const data = {
+  name: "Andrés Retamal López",
+  email: "andresretamallopezch@gmail.com",
+  github: "https://github.com/AndresRetamal-Dev",
+  linkedin: "https://www.linkedin.com/in/andr%C3%A9s-retamal-l%C3%B3pez/",
+  location: "Zurich, Switzerland",
+  cv: "/cv/Cv_Andres-Retamal-Lopez-net-zh.pdf",
+};
 ---
 
-<Base
-  title={title}
-  meta_title={meta_title}
-  description={description}
-  image={image}
->
+<Base title={title} meta_title={meta_title} description={description} image={image}>
   <PageHeader title={title} />
-  <section class="section-sm">
+
+  <section class="section pt-0">
     <div class="container">
-      <div class="row">
-        <div class="mx-auto md:col-10 lg:col-6">
-          <form action={contact_form_action} method="POST">
-            <div class="mb-6">
-              <label for="name" class="form-label text-2xl font-semibold">
-                👤 Full Name <span class="text-red-500">:</span>
-                <span class="ml-1 font-normal text-xl">Andrés Retamal López</span>
-              </label>
+      <div class="mx-auto max-w-4xl">
+        
+        <!-- INTRO -->
+        <div class="text-center mb-14">
+          <p class="text-sm uppercase tracking-[0.25em] text-primary mb-2">
+            Let’s get in touch
+          </p>
+          <h2 class="text-h3 mb-4">Want to reach out or collaborate?</h2>
+          <p class="text-lg text-body max-w-2xl mx-auto">
+            If you'd like to talk about a project, collaboration, or opportunity,
+            feel free to contact me directly. I'm always open to meaningful conversations,
+            new challenges and impactful work.
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-[1.4fr,1fr] gap-10 items-start">
+
+          <!-- PANEL PRINCIPAL -->
+          <div class="rounded-3xl border border-border bg-gray-900/40 p-10 shadow-xl shadow-black/40">
+            <h3 class="text-xl font-semibold mb-6">Contact Details</h3>
+
+            <div class="space-y-7">
+
+              <div class="flex gap-4">
+                <span class="text-3xl">👤</span>
+                <div>
+                  <p class="text-sm uppercase tracking-wide text-muted">Full Name</p>
+                  <p class="text-base font-medium">{data.name}</p>
+                </div>
+              </div>
+
+              <div class="flex gap-4">
+                <span class="text-3xl">📧</span>
+                <div>
+                  <p class="text-sm uppercase tracking-wide text-muted">Working Mail</p>
+                  <a href={`mailto:${data.email}`} class="text-base font-normal text-xl underline">
+                    {data.email}
+                  </a>
+                </div>
+              </div>
+
+              <div class="flex gap-4">
+                <span class="text-3xl">📍</span>
+                <div>
+                  <p class="text-sm uppercase tracking-wide text-muted">Location</p>
+                  <p class="text-base font-medium">{data.location}</p>
+                </div>
+              </div>
+
+              <div class="flex gap-4">
+                <span class="text-3xl">📄</span>
+                <div>
+                  <p class="text-sm uppercase tracking-wide text-muted">CV</p>
+                  <a href={data.cv} download class="text-base font-normal text-xl underline">
+                    Download CV (PDF)
+                  </a>
+                </div>
+              </div>
+
             </div>
 
-            <div class="mb-6">
-              <label for="email" class="form-label text-2xl font-semibold">
-                📧 Working Mail <span class="text-red-500">:</span>
-                <a
-                  href="mailto:andresretamallopezch@gmail.com"
-                  class="ml-1 font-normal text-xl underline"
-                >
-                  andresretamallopezch@gmail.com
-                </a>
-              </label>
+            
+          </div>
+
+          <!-- PANEL LATERAL -->
+          <aside class="space-y-5 rounded-3xl border border-border bg-gray-950/70 p-6 shadow-lg shadow-black/25">
+            <p class="uppercase tracking-[0.25em] text-muted text-sm">Profiles</p>
+            <h3 class="text-lg font-semibold mb-4">Online Presence</h3>
+            <div class="space-y-4">
+
+              <a
+                href={data.github}
+                target="_blank"
+                class="flex justify-between items-center bg-black/30 rounded-2xl p-4 hover:bg-black/50 transition"
+              >
+                <div class="flex items-center gap-3">
+                  <span class="text-blue-300 text-2xl">💻</span>
+                  <div>
+                    <p class="font-medium">GitHub</p>
+                    <p class="text-xs text-muted">Code • Projects • Experiments</p>
+                  </div>
+                </div>
+                <span class="text-xs text-muted">Open</span>
+              </a>
+
+              <a
+                href={data.linkedin}
+                target="_blank"
+                class="flex justify-between items-center bg-black/30 rounded-2xl p-4 hover:bg-black/50 transition"
+              >
+                <div class="flex items-center gap-3">
+                  <span class="text-blue-500 text-2xl">🔗</span>
+                  <div>
+                    <p class="font-medium">LinkedIn</p>
+                    <p class="text-xs text-muted">Experience • Career • Background</p>
+                  </div>
+                </div>
+                <span class="text-xs text-muted">Open</span>
+              </a>
+
             </div>
 
-            <div class="mb-6">
-              <label for="github" class="form-label text-2xl font-semibold">
-                💻 GitHub <span class="text-red-500">:</span>
-                <a
-                  href="https://github.com/AndresRetamal-Dev"
-                  target="_blank"
-                  rel="noreferrer"
-                  class="ml-1 font-normal text-lg underline"
-                >
-                  github.com/AndresRetamal-Dev
-                </a>
-              </label>
+            <div class="rounded-2xl border border-dashed border-border/60 p-4 text-muted text-xs">
+              I usually reply within 24–48 hours.  
+              For urgent matters, please specify it clearly in the subject line.
             </div>
+          </aside>
 
-            <div class="mb-6">
-              <label for="linkedin" class="form-label text-2xl font-semibold">
-                🔗 LinkedIn <span class="text-red-500">:</span>
-                <a
-                  href="https://www.linkedin.com/in/andr%C3%A9s-retamal-l%C3%B3pez/"
-                  target="_blank"
-                  rel="noreferrer"
-                  class="ml-1 font-normal text-xl underline"
-                >
-                  linkedin.com/in/andrés-retamal-lópez
-                </a>
-              </label>
-            </div>
-
-            <div class="mb-6">
-              <label for="location" class="form-label text-2xl font-semibold">
-                📍 Location <span class="text-red-500">:</span>
-                <span class="ml-1 font-normal text-xl">Zurich, Switzerland</span>
-              </label>
-            </div>
-
-            <div class="mb-6">
-              <label for="cv" class="form-label text-2xl font-bold">
-                📄 CV <span class="text-red-500">:</span>
-                <a
-                  href="/cv/Cv_Andres-Retamal-Lopez-net-zh.pdf"
-                  download
-                  class="ml-1 font-normal text-lg underline"
-                >
-                  Download CV (PDF)
-                </a>
-              </label>
-            </div>
-
-            {/*
-            <button type="submit" class="btn btn-primary">Submit</button>
-            */}
-          </form>
         </div>
       </div>
     </div>
