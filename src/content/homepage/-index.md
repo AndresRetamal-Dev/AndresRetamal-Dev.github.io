@@ -2,19 +2,20 @@
 # Banner
 banner:
   title: "Andrés Retamal López"
+  subtitle: ".NET Software Engineer · Clean Architecture · Azure"
   content: "Welcome to my world"
   image: "/images/banner.png"
   button:
     enable: true
     label: "View My Projects"
-    link: "/blog/post-3"
+    link: "/blog"
 
 # Features
 features:
   - title: "My Real Work Journey"
     image: "/images/service-1.png"
     content: "Do you want to know how I’ve really worked, instead of just reading a résumé or having a phone call?
-      Here you’ll find my blogs and small tips where I’ll show you what I’ve done — and most importantly, how I’ve done it. I’ll be narrating everything from when I first started up to today, since this can give a better view of my professional experience and help me stand out among so many people nowadays.
+      Here you’ll find my blogs and small tips where I’ll show you what I’ve done and most importantly, how I’ve done it. I’ll be narrating everything from when I first started up to today, since this can give a better view of my professional experience and help me stand out among so many people nowadays.
       I hope to hear your thoughts on some of my blogs. Thank you very much for visiting!"
     bulletpoints:
       - "You’ll see how I work in real situations"

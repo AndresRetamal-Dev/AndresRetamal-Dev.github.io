@@ -1,6 +1,6 @@
 {
   "site": {
-    "title": "s",
+    "title": "Andrés Retamal López - Software Engineer",
     "base_url": "https://astroplate.netlify.app",
     "base_path": "/",
     "trailing_slash": false,
@@ -45,7 +45,7 @@
   },
 
   "disqus": {
-    "enable": true,
+    "enable": false,
     "shortname": "themefisher-template",
     "settings": {}
   },
