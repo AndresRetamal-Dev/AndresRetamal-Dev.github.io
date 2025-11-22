@@ -24,6 +24,8 @@ If a payment gateway fails, the business loses money. Period.
 
 This diagram provides a complete high-level view of the payment gateway’s architecture before diving into each layer in detail.
 
+
+
 ![Workflow Diagram](/images/API.png)
 
 After years working on high-traffic systems, I’ve learned what makes a payment gateway reliable, scalable, and easy to evolve.
