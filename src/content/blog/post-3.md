@@ -3,16 +3,32 @@ title: "How to build the best payment-gateway"
 slug: "post-3"
 meta_title: ""
 description: "this is meta description"
-date: 2025-11-12T05:00:00Z
+date: 2025-06-01T05:00:00Z
 image: "/images/5-start.png"
 categories: ["Software"]
 author: "Andrés Retamal López"
-tags: ["software", "tailwind"]
+tags: [
+  ".NET",
+  "Clean Architecture",
+  "Microservices",
+  "Docker",
+  "Azure",
+  "Fintech"
+]
+
+
 draft: false
 ---
 
-According to my professional experience, and after several years working with payment systems in high-traffic environments,
-the most comfortable and efficient way I’ve built a payment gateway is using a Hexagonal Architecture combined with a Microservices approach.
+If a payment gateway fails, the business loses money. Period.
+
+This diagram provides a complete high-level view of the payment gateway’s architecture before diving into each layer in detail.
+
+![Workflow Diagram](/images/API.png)
+
+After years working on high-traffic systems, I’ve learned what makes a payment gateway reliable, scalable, and easy to evolve.
+
+According to my professional experience — and after several years working with payment systems in high-traffic environments — the most comfortable and efficient way I’ve built a payment gateway is using a Hexagonal Architecture combined with a Microservices approach.
 
 This setup allows you to design systems that are:
 
@@ -25,11 +41,20 @@ My goal isn’t to reinvent the wheel — it’s to share a real-world, producti
 
 ## 🧠 Why Hexagonal Architecture?
 
-Because it forces you to keep the core domain independent from external frameworks, databases, and third-party services.
-If you ever decide to change the database engine or switch payment providers, you don’t have to rewrite the business logic — you simply plug in a new adapter.
+This diagram summarizes the full architecture behind a scalable and provider-agnostic payment gateway built with Hexagonal principles.
 
-It’s like building a system in concentric circles: each layer depends only on the inner ones, never outward.
-That separation gives clarity, testability, and long-term maintainability.
+Here is a high-level overview of the architecture before breaking down each layer.
+
+![Workflow Diagram](/images/Diagrama3.png)
+
+Hexagonal Architecture keeps your business logic completely independent from external frameworks, databases, and payment providers.
+If you ever replace the storage engine or switch to another payment processor, nothing in the core domain needs to change, you simply connect a new adapter.
+
+Think of it like a set of concentric circles: inner layers never depend on outer layers.
+This separation guarantees clarity, scalability, testability, and long-term maintainability.
+
+### 📁 Service Folder Structure (High-Level Overview)
+
 
 ```csharp
 Service/
@@ -111,7 +136,17 @@ This separation ensures that even if you migrate to a different payment provider
 
 
 
-## 4️⃣ Domain Models Layer
+## 4️⃣ Domain Models — The Heart of the Business
+
+In Hexagonal Architecture, the Domain Models layer contains the pure business rules, untouched by frameworks, databases, or providers. These entities define how the payment gateway behaves at its core.
+
+```csharp
+   [Domain Models]
+       |
+   [Application]
+       |
+    [API]
+```
 
 This is where the entities live — the core of the system.
 It defines all models related to the payment flow: sessions, merchants, configurations, transactions, logs, etc.
@@ -128,6 +163,8 @@ These models represent the real business and are shared across other layers thro
 
 
 ## 5️⃣ Contracts Layer
+
+The Contracts layer defines the communication rules between all layers and microservices. It ensures consistency, prevents coupling, and acts as the shared language of the entire system.
 
 A transversal project that contains DTOs, Enums, and Interfaces shared between the main layers.
 Here is where we define the public contracts for communication and data exchange between microservices.
@@ -147,12 +184,16 @@ Contracts/
 
 ## 6️⃣ Test Layer
 
+Unit tests validate isolated business logic (Application + Domain).
+Functional tests ensure the full payment flow works end-to-end.
 
 The final piece.
 This layer covers Unit and Functional testing for the entire microservice.
 The goal is to maintain a minimum coverage threshold and guarantee that every layer works independently.
 
 🔌 Payment Flow Example
+
+The following endpoint shows how the layers interact in a real request, following the exact flow described above.
 
 Here’s a simplified view of how a Checkout Session is created in the system:
 
@@ -199,12 +240,24 @@ public class CheckoutEndpointDefinition : IEndpointDefinition
 }
 ```
 
+![Workflow Diagram](/images/CheckoutSession.png)
+
 This endpoint demonstrates:
 
 - Clear separation of responsibilities
 - Integration with caching
 - Clean error handling
 - Reusable service layer logic
+
+In the end, a payment gateway is not just a microservice
+
+it’s one of the most critical pieces of the business.
+
+A payment gateway is not just a microservice, it is the financial engine of the business.
+By keeping the architecture simple, scalable, replaceable, and fully testable, you guarantee stability where it matters the most: the money flow.
+
+
+If you want the full repository structure, sample implementation, or more advanced flows (refunds, webhooks, retries), let me know and I’ll publish a follow-up article.
 
 > “Clean architecture gives you the freedom to evolve your business rules stay the same, even when everything else changes.”
 

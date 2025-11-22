@@ -3,11 +3,16 @@ title: "Evolving Through Code: My Engineering Story"
 slug: "post-1"
 meta_title: ""
 description: "this is meta description"
-date: 2022-04-04T05:00:00Z
+date: 2021-06-01T05:00:00Z
 image: "/images/gss.png"
 categories: ["Application", "Data"]
 author: "Andrés Retamal López"
-tags: ["nextjs", "tailwind"]
+tags: [
+  ".NET",
+  "Sales Systems"
+]
+
+
 draft: false
 ---
 
